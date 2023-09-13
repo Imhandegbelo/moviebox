@@ -12,15 +12,16 @@ export default function DescriptionBox(props) {
     ...inputProps
   } = props;
   return (
-    <div className="flex flex-col gap-4 relative top-1/3 align-left text-white w-2/5">
+    <div className="flex relative top-[35%]">
+    <div className=" flex flex-col gap-4 w-full sm:top-1/3 align-left text-white sm:w-3/5 md:w-3/5 lg:w-2/5">
       <div>
         <h1 className="text-5xl font-bold">{title}</h1>
       </div>
-      <div className="flex">
+      <div className="flex gap-5 sm:gap-10">
         <div className="flex gap-2.5 items-center">
           <img src={imdb} alt="imdb" className="h-4" />
-          <small className="text-xs font-normal text-gray-900">
-            {imdb_rating}/10
+          <small className="text-xs font-normal">
+            {imdb_rating} / 100
           </small>
         </div>
         <div className="flex gap-2.5 items-center">
@@ -29,7 +30,7 @@ export default function DescriptionBox(props) {
             alt="rotten_tomato"
             className="h-4"
           />
-          <small className="text-xs font-normal text-gray-900">
+          <small className="text-xs font-normal">
             {rotten_tomato_rating}%
           </small>
         </div>
@@ -50,6 +51,7 @@ export default function DescriptionBox(props) {
         </button>
         {/* </Link> */}
       </div>
+    </div>
     </div>
   );
 }

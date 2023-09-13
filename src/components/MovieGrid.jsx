@@ -1,50 +1,36 @@
-import MovieCard from "./MovieCard";
+import {MovieCard} from "./MovieCard";
+import right_arrow from "../assets/images/ArrowRight.svg";
 
-const MovieList = ({ movieList }) => {
-  const movies = movieList;
+export default function MovieGrid({ movies }) {
   return (
-    <div className="my-[70px] mx-4 sm:m-[70px]">
+    <div className="my-[70px] px-4 md:px-24">
       <div className="flex justify-between items-center mb-[44px]">
         <h2 className="text-black text-2xl sm:text-4xl font-bold">
           Featured Movie
         </h2>
         <a
           href="#"
-          className="text-rose-700 text-lg font-normal leading-normal hidden sm:flex items-center gap-2 hover:underline"
+          className="text-rose-700 text-lg font-normal leading-normal items-center hidden sm:flex gap-2 hover:underline"
         >
           View All
           <span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="21"
-              viewBox="0 0 20 21"
-              fill="none"
-            >
-              <path
-                d="M7.5 4.66668L13.3333 10.5L7.5 16.3333"
-                stroke="#B91C1C"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <img src={right_arrow} alt="arrow" />
           </span>
         </a>
       </div>
-      <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 sm:gap-x-20 gap-y-10">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 sm:gap-x-20 gap-y-10">
         {movies.slice(0, 10).map((movie) => (
           <MovieCard
             key={movie.id}
             id={movie.id}
             title={movie.title}
-            releaseDate={movie.release_date.slice(0, 4)}
+            releaseDate={new Date(`${movie.release_date}`).getTime()}
             posterUrl={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
           />
         ))}
       </div>
     </div>
   );
-};
+}
 
-export default MovieList;
+// export default MovieGrid;

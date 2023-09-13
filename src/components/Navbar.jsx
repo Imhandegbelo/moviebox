@@ -6,8 +6,8 @@ import { SearchBar } from "./SearchBar";
 export default function Navbar() {
   return (
     <nav className="flex justify-between text-white py-6 w-full h-20 items-center">
-      <img src={tv} alt="tv-logo" className="sm:hidden" />
-      <img src={logo} alt="moviebox" className="hidden sm:block" />
+      <img src={tv} alt="tv-logo" className="w-8 h-8 sm: md:hidden" />
+      <img src={logo} alt="moviebox" className="hidden md:block" />
 
       <SearchBar />
       <div className="flex gap-6">
