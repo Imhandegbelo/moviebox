@@ -1,17 +1,57 @@
-import Loading from "./Loading"
-export function SingleMovie({id}) {
+import { Loading } from "./Loading";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import ConvertToUTC from "../utils/ConvertToUTC";
+import axios from "axios";
+
+export function SingleMovie() {
+  const { id } = useParams();
+  const [movie, setMovie] = useState(null);
+  const [genre, setGenre] = useState(null);
+
+  const apiKey = "2c580b58c9354d8e7393cfd454223f73";
+  useEffect(() => {
+    const apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`;
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        console.log(response.data);
+        setMovie(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching movie details:", error);
+      });
+  }, [id]);
+
+  useEffect(() => {
+    const genreUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
+    axios
+      .get(genreUrl)
+      .then((res) => {
+        const genreArray = [];
+        response.data.genres.forEach((genre) => {
+          genreArray[genre.id] = genre.name;
+        });
+        setGenre(genreArray);
+      })
+      .catch((err) => {
+        console.log("An error occured", err);
+      });
+  }, []);
+
+  // const releaseDateUTC = ConvertToUTC(movie.release_date)
   return (
     <>
       <div className="flex">
         {/* <MovieSidebar id={id} /> */}
         {!movie ? (
           <div className="w-full">
-            <Loading text={"Loading"}/>
+            <Loading text={"Loading"} />
           </div>
         ) : (
           <div className="mx-4 sm:mx-14 my-9">
             <img
-              src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w500${movie?.backdrop_path}`}
               alt={movie?.title}
               className="rounded-3xl h-[450px] w-full object-cover object-center"
             />
@@ -23,7 +63,7 @@ export function SingleMovie({id}) {
                 <span className=" text-[23px] hidden lg:inline-block">•</span>
                 <p data-testid="movie-release-date" className="">
                   {" "}
-                  {releaseDateUTC}
+                  {/* {releaseDateUTC} */}
                 </p>
                 <span className=" text-[23px] hidden lg:inline-block">•</span>
                 <p data-testid="movie-runtime" className="">

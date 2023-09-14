@@ -9,10 +9,11 @@ export default function DescriptionBox(props) {
     imdb_rating,
     rotten_tomato_rating,
     description,
+    link,
     ...inputProps
   } = props;
   return (
-    <div className="flex relative top-[35%]">
+    <div className="flex relative top-0">
     <div className=" flex flex-col gap-4 w-full sm:top-1/3 align-left text-white sm:w-3/5 md:w-3/5 lg:w-2/5">
       <div>
         <h1 className="text-5xl font-bold">{title}</h1>
@@ -40,15 +41,14 @@ export default function DescriptionBox(props) {
       </div>
       <div>
         {/* <Link to="#" className=""> */}
-        <button
-          type="button"
-          href="#"
+        <Link
+          to={link}
           className="inline-flex rounded rounded-6 items-center font-medium leading-normal text-white gap-2 px-4 py-1.5 transition duration-150 ease-in-out bg-rose-700 hover:bg-rose-600 focus:bg-rose-600 active:bg-rose-700"
           data-te-ripple-init
           data-te-ripple-color="light"
         >
           <img src={play} alt="play" /> WATCH TRAILER
-        </button>
+        </Link>
         {/* </Link> */}
       </div>
     </div>

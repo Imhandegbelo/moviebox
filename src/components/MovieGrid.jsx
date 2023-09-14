@@ -1,7 +1,7 @@
 import {MovieCard} from "./MovieCard";
 import right_arrow from "../assets/images/ArrowRight.svg";
 
-export default function MovieGrid({ movies }) {
+export default function MovieGrid({ movies, genres }) {
   return (
     <div className="my-[70px] px-4 md:px-24">
       <div className="flex justify-between items-center mb-[44px]">
@@ -26,6 +26,9 @@ export default function MovieGrid({ movies }) {
             title={movie.title}
             releaseDate={new Date(`${movie.release_date}`).getTime()}
             posterUrl={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+            voteAverage={movie.vote_average}
+            genres={genres}
+            movies={movies}
           />
         ))}
       </div>
