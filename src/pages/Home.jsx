@@ -18,7 +18,6 @@ export default function Home() {
       .get(apiUrl)
       .then((res) => {
         setMovies(res.data.results);
-        console.log(res.data.results);
         setLoading(false);
       })
       .catch((err) => {
@@ -67,7 +66,6 @@ export default function Home() {
           <MovieGrid genres={genre} movies={movies} />
         </div>
       )}
-      <Footer/>
     </div>
   );
 }

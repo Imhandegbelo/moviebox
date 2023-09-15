@@ -7,6 +7,8 @@ import ticket from "../assets/images/Two Tickets.png";
 import list from "../assets/images/List.png";
 import Button from "../components/SingleMovieButtons";
 import MovieSidebar from "../components/MovieSidebar";
+import Footer from "../components/Footer";
+
 
 export function SingleMovie() {
   const { id } = useParams();
@@ -116,6 +118,7 @@ export function SingleMovie() {
                 </div>
               </div>
             </div>
+            <Footer/>
           </div>
         )}
       </div>

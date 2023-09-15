@@ -11,11 +11,10 @@ export function MovieCard({
   releaseDate,
   posterUrl,
   voteAverage,
-  genres,
-  movies,
 }) {
   const rating = (voteAverage * 10).toFixed(1);
   const [favourite, setFavourite] = useState(false);
+  
   return (
     <Link to={`/movie/${id}`} className="w-full max-w-[250px]">
       <div
