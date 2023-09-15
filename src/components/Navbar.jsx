@@ -57,8 +57,13 @@ export default function Navbar() {
       </div>
       <div>
         {loading ? (
-          <div className="p-2 md:p-6 absolute left-0 top-[5rem] z-10">
-            <p>Loading ...</p>
+          <div className="w-full p-2 md:p-6 absolute left-0 top-[5rem] z-10 bg-white">
+            <div className="flex justify-center items-center gap-6">
+              <div className="animate-ping">
+                <div className="rounded-full h-10 w-10 bg-rose-700"></div>
+              </div>
+              <h2 className="text-rose-500 text-2xl font-bold">Loading ...</h2>
+            </div>
           </div>
         ) : (
           <div

@@ -15,7 +15,7 @@ export function SingleMovie() {
   const [movie, setMovie] = useState(null);
   const [genre, setGenre] = useState(null);
   const [directors, setDirectors] = useState([]);
-  const [writers, setWriters] = useState([]);
+  // const [writers, setWriters] = useState([]);
 
   const apiKey = "2c580b58c9354d8e7393cfd454223f73";
   useEffect(() => {
@@ -40,7 +40,6 @@ export function SingleMovie() {
           genreArray[genre.id] = genre.name;
         });
         setGenre(genreArray);
-        console.log("Genre is: ", genreArray);
       })
       .catch((err) => {
         console.log("An error occured", err);
@@ -81,20 +80,20 @@ export function SingleMovie() {
               className="rounded-3xl h-[450px] w-full object-cover object-center"
             />
             <div className="m-2 sm:m-4 flex flex-col gap-6">
-              <div className="flex justify-between text-xl sm:text-[23px] text-stone-700 font-bold">
+              <div className="flex justify-between text-xl sm:text-[23px] text-stone-700">
                 <div className="flex flex-wrap gap-2">
-                  <h2 data-testid="movie-title">{movie?.title}</h2>
+                  <h2 data-testid="movie-title font-bold">{movie?.title}</h2>
                   <span className="text-xl sm:text-2xl hidden lg:inline-block">
                     .
                   </span>
-                  <p data-testid="movie-release-date" className="">
+                  <p data-testid="movie-release-date" className="font-normal">
                     {" "}
                     {releaseDate.toUTCString().slice(5, 16)}
                   </p>
                   <span className="text-xl sm:text-2xl hidden lg:inline-block">
                     .
                   </span>
-                  <p data-testid="movie-runtime" className="">
+                  <p data-testid="movie-runtime" className="font-normal">
                     {`${movie?.runtime}mins`}
                   </p>
                   <div className="flex wrap items-cente align-center">
