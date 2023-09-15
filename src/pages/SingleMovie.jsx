@@ -51,7 +51,8 @@ export function SingleMovie() {
     axios
       .get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}`)
       .then((response) => {
-        setDirectors(response.data.crew.filter(({ job }) => job === "Director"));
+        let arr = response.data.crew.filter(({ job }) => job === "Director");
+        arr.forEach((crew) => setDirectors(crew.name));
       })
       .catch((error) => {
         console.log("Error fetching credits", error);
@@ -96,8 +97,15 @@ export function SingleMovie() {
                   <p data-testid="movie-runtime" className="">
                     {`${movie?.runtime}mins`}
                   </p>
-                  <div className="flex wrap">
-                    {/* {directors} */}
+                  <div className="flex wrap items-cente align-center">
+                    {movie?.genres.map((genre, index) => (
+                      <div
+                        key={index}
+                        className="sm:ml-3 text-xs text-rose-700 lg:text-base font-bold leading-1"
+                      >
+                        {genre.name}
+                      </div>
+                    ))}{" "}
                   </div>
                 </div>
                 <div className="flex justify-between gap-2 item-center">
@@ -118,8 +126,23 @@ export function SingleMovie() {
                   >
                     {movie?.overview}
                   </p>
-                  <p className="text-xl">Director: </p>
-                  <p className="text-xl">Writers: </p>
+                  <p className="text-xl">
+                    Director: <span className="text-rose-700">{directors}</span>{" "}
+                  </p>
+                  <p className="text-xl">
+                    Writers:{" "}
+                    <span className="text-rose-700">
+                      {" "}
+                      Jim Cash, Jack Epps Jr, Peter Kosinski
+                    </span>{" "}
+                  </p>
+                  <p className="text-xl">
+                    Writers:{" "}
+                    <span className="text-rose-700">
+                      {" "}
+                      Tom Cruise, Jennifer Connelly
+                    </span>{" "}
+                  </p>
                 </div>
                 <div className="flex flex-col w-full md:w-1/3 gap-4">
                   <Button title="See Showtimes" icon={ticket} type="primary" />

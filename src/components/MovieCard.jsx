@@ -11,10 +11,11 @@ export function MovieCard({
   releaseDate,
   posterUrl,
   voteAverage,
+  movies,
 }) {
   const rating = (voteAverage * 10).toFixed(1);
   const [favourite, setFavourite] = useState(false);
-  
+ console.log(movies?.genre)
   return (
     <Link to={`/movie/${id}`} className="w-full max-w-[250px]">
       <div
@@ -61,8 +62,16 @@ export function MovieCard({
             </small>
           </div>
         </div>
-        {/* <small className="text-sm font-bold text-gray-400">{genres?.map(genre => <span>{genre.name}</span>)}</small> */}
-        {/* <Genre movies={movies} genres={genres}/> */}
+        <div className="flex wrap items-cente text-stone-500">
+          {/* {movies?.genres?.map((genre, index) => (
+            <div
+              key={index}
+              className="sm:ml-3 text-xs text-gray-400 lg:text-base font-bold leading-1"
+            >
+              {genre.name}
+            </div>
+          ))} */}
+        </div>
       </div>
     </Link>
   );
