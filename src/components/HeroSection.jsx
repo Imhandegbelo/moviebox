@@ -30,7 +30,7 @@ export function HeroSection({ moviesArray }) {
               <DescriptionBox
                 title={hero_movies[movieIndex]?.title}
                 description={hero_movies[movieIndex]?.overview}
-                link={`/movie/${hero_movies[movieIndex]?.id}`}
+                link={`/movies/${hero_movies[movieIndex]?.id}`}
                 rating={hero_movies[movieIndex]?.vote_average}
               />
             </div>
