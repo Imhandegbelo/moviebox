@@ -1,4 +1,4 @@
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/Logo.png";
 import tv from "../assets/images/tv.png";
 import menu from "../assets/images/menu.svg";
 import { SearchBar } from "./SearchBar";
