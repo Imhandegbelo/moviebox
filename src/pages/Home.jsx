@@ -55,7 +55,7 @@ export default function Home() {
   return (
     <div className="absolute w-full">
       <div className="relative top-0">
-        <HeroSection moviesArray={topRatedMovies} />
+        <HeroSection moviesArray={movies} />
       </div>
       {loading ? (
         <div>
@@ -63,7 +63,7 @@ export default function Home() {
         </div>
       ) : (
         <div className="relative top-[600px]">
-          <MovieGrid genres={genre} movies={movies} />
+          <MovieGrid genres={genre} movies={topRatedMovies} />
         </div>
       )}
     </div>
