@@ -2,7 +2,7 @@ import { Loading } from "./Loading";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import star from "../assets/images/star.png";
+import star from "../assets/images/Star.png";
 import ticket from "../assets/images/Two Tickets.png";
 import list from "../assets/images/List.png";
 import Button from "../components/SingleMovieButtons";
