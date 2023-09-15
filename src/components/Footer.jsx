@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="flex align-items-center px-6 align-items-center text-xs sm:text-md font-bold">
+    <footer className="relative bottom-0 flex align-items-center px-6 align-items-center text-xs sm:text-md font-bold">
       <div className="mx-auto w-full text-center sm:w-1/2 md:w-2/5">
         <div className="flex justify-between mx-auto w-3/5">
           <Link to="#">

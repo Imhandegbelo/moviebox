@@ -54,14 +54,14 @@ export default function MovieSidebar({ id }) {
               <p className="hidden lg:block">Upcoming</p>
             </NavLink>
           </div>
-          <div className="hidden lg:flex flex-col gap-4 border bg-rose-50/50 md:w-4/5 py-6 px-4 mx-auto rounded-3xl">
-            <h3 className="text-zinc-800/80 text-base font-semibold">
+          <div className="hidden lg:flex flex-col gap-4 border border-rose-500 bg-rose-50/50 md:w-4/5 py-6 px-4 mx-auto rounded-3xl">
+            <h3 className="text-zinc-800/80 text-base leading-none font-semibold">
               Play movie quizes and earn free tickets
             </h3>
-            <p className="text-stone-500 text-xs font-medium">
+            <p className="text-stone-500 text-xs leading-tight font-medium">
               50k people are playing now
             </p>
-            <button className="inline-flex items-center text-xs text-rose-700 font-medium bg-rose-100 rounded-[30px] px-4 py-1">
+            <button className="flex justify-center text-xs text-rose-700 font-medium bg-rose-100 rounded-[30px] px-4 py-1">
               Start playing
             </button>
           </div>

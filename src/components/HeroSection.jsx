@@ -21,7 +21,8 @@ export function HeroSection({ moviesArray }) {
                   {movies[movieIndex]?.vote_average}
                 </IMDBRating> */
     <header className="h-37.5 relative">
-      <div className="absolute top-0 left-0 right-0 bottom-0 transition-opacity duration-500 ease-in-out">
+      <div className="absolute top-0 left-0 right-0 bottom-0 transition-opacity duration-500 ease-out">
+      <Navbar />
         {hero_movies.length > 0 && (
           <div className="relative">
             <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-[600px] bg-black bg-opacity-70"></div>
@@ -30,9 +31,8 @@ export function HeroSection({ moviesArray }) {
                 title={hero_movies[movieIndex]?.title}
                 description={hero_movies[movieIndex]?.overview}
                 link={`/movie/${hero_movies[movieIndex]?.id}`}
-                imdb_rating={hero_movies[movieIndex]?.voter_average}
+                rating={hero_movies[movieIndex]?.vote_average}
               />
-    
             </div>
             <img
               data-testid="movie-poster"
@@ -42,7 +42,7 @@ export function HeroSection({ moviesArray }) {
             />
           </div>
         )}
-        <div className="relative top-0 right-10 hidden sm:flex h-full ">
+        <div className="relative top-10 right-10 hidden sm:flex h-full ">
           <div className="flex flex-col gap-2 justify-center align-center w-10 items-end">
             {hero_movies.slice(0, 6).map((_, index) => (
               <div
