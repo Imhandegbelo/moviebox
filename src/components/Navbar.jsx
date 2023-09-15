@@ -57,9 +57,9 @@ export default function Navbar() {
       </div>
       <div>
         {loading ? (
-      <div className="p-2 md:p-6 absolute left-0 top-[5rem] z-10"
-          <p>Loading ...</p>
-      </div>
+          <div className="p-2 md:p-6 absolute left-0 top-[5rem] z-10">
+            <p>Loading ...</p>
+          </div>
         ) : (
           <div
             className={`flex flex-col divide-2 divide-stone-900 gap-4 w-full absolute left-0 top-[5rem] ${
