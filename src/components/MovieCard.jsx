@@ -17,7 +17,7 @@ export function MovieCard({
   const [favourite, setFavourite] = useState(false);
  console.log(movies?.genre)
   return (
-    <Link to={`/movie/${id}`} className="w-full max-w-[250px]">
+    <Link to={`/movies/${id}`} className="w-full max-w-[250px]">
       <div
         data-testid="movie-card"
         className="relative flex flex-col justify-center gap-3"
