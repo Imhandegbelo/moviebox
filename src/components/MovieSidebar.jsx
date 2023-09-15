@@ -30,7 +30,7 @@ export default function MovieSidebar({ id }) {
               <p className="hidden lg:block">Home</p>
             </NavLink>
             <NavLink
-              to={`/movie/${id}`}
+              to={`#`}
               title="Movies"
               className="inline-flex items-center py-3 md:gap-3 lg:gap-4 pl-6 bg-rose-100 border-r-4 border-rose-500"
             >
