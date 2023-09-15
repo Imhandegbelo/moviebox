@@ -5,10 +5,10 @@ import axios from "axios";
 import star from "../assets/images/Star.png";
 import ticket from "../assets/images/Two Tickets.png";
 import list from "../assets/images/List.png";
+import grouppic from "../assets/images/grouppic.png";
 import Button from "../components/SingleMovieButtons";
 import MovieSidebar from "../components/MovieSidebar";
 import Footer from "../components/Footer";
-
 
 export function SingleMovie() {
   const { id } = useParams();
@@ -26,8 +26,7 @@ export function SingleMovie() {
       .catch((error) => {
         console.error("Error fetching movie details:", error);
       });
-    }, [id]);
-    
+  }, [id]);
 
   useEffect(() => {
     const genreUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
@@ -46,10 +45,10 @@ export function SingleMovie() {
       });
   }, []);
 
-  document.title= `${movie?.title}`
+  document.title = `${movie?.title}`;
   const releaseDate = new Date(movie?.release_date);
   const movieGenre = movie?.genre;
-  
+
   return (
     <>
       <div className="flex font-['Poppins']">
@@ -70,9 +69,7 @@ export function SingleMovie() {
             <div className="m-2 sm:m-4 flex flex-col gap-6">
               <div className="flex justify-between text-xl sm:text-[23px] text-stone-700 font-bold">
                 <div className="flex flex-wrap gap-2">
-                  <h2 data-testid="movie-title">
-                    {movie?.title}
-                  </h2>
+                  <h2 data-testid="movie-title">{movie?.title}</h2>
                   <span className="text-xl sm:text-2xl hidden lg:inline-block">
                     .
                   </span>
@@ -91,7 +88,9 @@ export function SingleMovie() {
                   <img src={star} alt="star" className="w-6 h-6 md:w-7 h-7" />{" "}
                   <p className="text-gray-300">
                     {movie?.vote_average.toFixed(1)}{" "}
-                    <span className="text-stone-700">| {movie?.vote_count}</span>
+                    <span className="text-stone-700">
+                      | {movie?.vote_count}
+                    </span>
                   </p>
                 </div>
               </div>
@@ -114,12 +113,16 @@ export function SingleMovie() {
                     type="secondary"
                   />
                   <div className="flex gap-2">
-                    <img src="https://via.placeholder.com/360x229" alt="group photo" />
+                    <img
+                      src={grouppic}
+                      alt="group photo"
+                      className="w-full"
+                    />
                   </div>
                 </div>
               </div>
             </div>
-            <Footer/>
+            <Footer />
           </div>
         )}
       </div>
