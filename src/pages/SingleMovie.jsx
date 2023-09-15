@@ -85,14 +85,14 @@ export function SingleMovie() {
                   </p>
                 </div>
                 <div className="flex justify-between gap-2 item-center">
-                  <img src={star} alt="star" className="w-6 h-6 md:w-7 h-auto" />{" "}
+                  <img src={star} alt="star" className="w-6 h-6 md:w-7 h-7" />{" "}
                   <p className="text-">
                     {movie?.vote_average.toFixed(1)}{" "}
                     <span className="">| {movie?.vote_count}</span>
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col md:flex md:flex-row gap-4 md:gap-0">
+              <div className="flex flex-col md:flex md:flex-row gap-4 md:gap-2">
                 <div className="flex flex-col gap-4 w-full md:w-2/3">
                   <p
                     data-testid="movie-overview"
