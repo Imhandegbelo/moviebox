@@ -14,7 +14,7 @@ function App() {
         <Route path="/movie/:id" element={<SingleMovie />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

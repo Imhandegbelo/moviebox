@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import MovieGrid from "../components/MovieGrid";
 import axios from "axios";
+import Footer from "../components/Footer";
 import { Loading } from "./Loading";
 import { HeroSection } from "../components/HeroSection";
 
@@ -66,6 +67,7 @@ export default function Home() {
           <MovieGrid genres={genre} movies={movies} />
         </div>
       )}
+      <Footer/>
     </div>
   );
 }

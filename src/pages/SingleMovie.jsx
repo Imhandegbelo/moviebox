@@ -65,7 +65,7 @@ export function SingleMovie() {
               className="rounded-3xl h-[450px] w-full object-cover object-center"
             />
             <div className="m-2 sm:m-4 flex flex-col gap-6">
-              <div className="flex justify-between text-xl sm:text-2xl text-stone-700  font-bold">
+              <div className="flex justify-between text-xl sm:text-[23px] text-stone-700 font-bold">
                 <div className="flex flex-wrap lg:no-wrap gap-2">
                   <h2 data-testid="movie-title" className="">
                     {movie?.title}
@@ -86,9 +86,9 @@ export function SingleMovie() {
                 </div>
                 <div className="flex justify-between gap-2 item-center">
                   <img src={star} alt="star" className="w-6 h-6 md:w-7 h-7" />{" "}
-                  <p className="text-">
+                  <p className="text-gray-300">
                     {movie?.vote_average.toFixed(1)}{" "}
-                    <span className="">| {movie?.vote_count}</span>
+                    <span className="text-stone-700">| {movie?.vote_count}</span>
                   </p>
                 </div>
               </div>
@@ -110,6 +110,9 @@ export function SingleMovie() {
                     icon={list}
                     type="secondary"
                   />
+                  <div className="flex gap-2">
+                    <img src="https://via.placeholder.com/360x229" alt="group photo" />
+                  </div>
                 </div>
               </div>
             </div>

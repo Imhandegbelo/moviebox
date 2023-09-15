@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function DescriptionBox(props) {
   const { title, rating, description, link } = props;
-  console.log(rating);
+  
   return (
     <div className="flex relative top-0">
       <div className=" flex flex-col gap-4 w-full sm:top-1/3 align-left text-white sm:w-3/5 md:w-3/5 lg:w-2/5">

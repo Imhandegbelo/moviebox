@@ -15,17 +15,17 @@ export function HeroSection({ moviesArray }) {
     return () => clearTimeout(timer_update);
   }, [movieIndex, hero_movies]);
 
-
   return (
     /* <IMDBRating>
                   {movies[movieIndex]?.vote_average}
                 </IMDBRating> */
     <header className="h-37.5 relative">
       <div className="absolute top-0 left-0 right-0 bottom-0 transition-opacity duration-500 ease-out">
-      <Navbar />
         {hero_movies.length > 0 && (
           <div className="relative">
             <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-[600px] bg-black bg-opacity-70"></div>
+            <Navbar />
+
             <div className="absolute border-white h-full flex items-end sm:items-center p-6 lg:pl-24">
               <DescriptionBox
                 title={hero_movies[movieIndex]?.title}
