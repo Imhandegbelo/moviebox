@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="flex align-items-center px-6 align-items-center text-md font-bold">
+    <footer className="flex align-items-center px-6 align-items-center text-xs sm:text-md font-bold">
       <div className="mx-auto w-full text-center sm:w-1/2 md:w-2/5">
         <div className="flex justify-between mx-auto w-3/5">
-          <Link to="#" className="hover:transform-105 ">
+          <Link to="#">
             <img src={facebook} alt="facebook" className="w-[24px] h-auto" />
           </Link>
           <Link to="#">
@@ -22,7 +22,7 @@ export default function Footer() {
             <img src={youtube} alt="youtube" className="w-[24px] h-auto" />
           </Link>
         </div>
-        <div className="flex py-5 text-gray-900 tracking-tighter justify-between">
+        <div className="flex flex-col sm:flex-row py-2 sm:py-5 text-gray-900 tracking-tighter justify-between">
           <Link to="#" className="hover:text-gray-800">
             Conditions of Use
           </Link>

@@ -21,8 +21,7 @@ export default function Home() {
         setLoading(false);
       })
       .catch((err) => {
-        const errorMessage = err;
-        // setError(errorMessage);
+        console.err(err);
         setLoading(false);
       });
   }, []);
@@ -54,14 +53,16 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="">
-      <HeroSection moviesArray={topRatedMovies} />
+    <div className="absolute w-full">
+      <div className="relative top-0">
+        <HeroSection moviesArray={topRatedMovies} />
+      </div>
       {loading ? (
         <div>
           <Loading text={"fetching data"} />
         </div>
       ) : (
-        <div>
+        <div className="relative top-[600px]">
           <MovieGrid genres={genre} movies={movies} />
         </div>
       )}

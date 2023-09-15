@@ -7,11 +7,10 @@ export default function DescriptionBox(props) {
   const {
     title,
     imdb_rating,
-    rotten_tomato_rating,
     description,
     link,
-    ...inputProps
   } = props;
+  console.log(imdb_rating)
   return (
     <div className="flex relative top-0">
     <div className=" flex flex-col gap-4 w-full sm:top-1/3 align-left text-white sm:w-3/5 md:w-3/5 lg:w-2/5">
