@@ -9,8 +9,8 @@ function App() {
     <div>
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/movie" element={<SingleMovie />} />
-        <Route path="/movie/:id" element={<SingleMovie />} />
+        {/*<Route path="/movie" element={<SingleMovie />} />*/}
+        <Route path="/movies/:id" element={<SingleMovie />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
