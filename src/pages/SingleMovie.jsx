@@ -21,13 +21,13 @@ export function SingleMovie() {
     axios
       .get(apiUrl)
       .then((res) => {
-        console.log(res.data);
         setMovie(res.data);
       })
       .catch((error) => {
         console.error("Error fetching movie details:", error);
       });
-  }, [id]);
+    }, [id]);
+    
 
   useEffect(() => {
     const genreUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
@@ -46,9 +46,10 @@ export function SingleMovie() {
       });
   }, []);
 
+  document.title= `${movie?.title}`
   const releaseDate = new Date(movie?.release_date);
   const movieGenre = movie?.genre;
-  console.log(movieGenre);
+  
   return (
     <>
       <div className="flex font-['Poppins']">
@@ -68,8 +69,8 @@ export function SingleMovie() {
             />
             <div className="m-2 sm:m-4 flex flex-col gap-6">
               <div className="flex justify-between text-xl sm:text-[23px] text-stone-700 font-bold">
-                <div className="flex flex-wrap lg:no-wrap gap-2">
-                  <h2 data-testid="movie-title" className="">
+                <div className="flex flex-wrap gap-2">
+                  <h2 data-testid="movie-title">
                     {movie?.title}
                   </h2>
                   <span className="text-xl sm:text-2xl hidden lg:inline-block">
