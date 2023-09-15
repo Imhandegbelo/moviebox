@@ -10,7 +10,7 @@ import logout from "../assets/images/Logout.png";
 export default function MovieSidebar({ id }) {
   return (
     <>
-      <div className="fixed w-1/12 md:w-2/12 rounded-r-[2.5rem] py-4 left-0 border-r-2 border-rose-500 h-screen">
+      <div className="fixed hidden md:block md:w-2/12 rounded-r-[2.5rem] py-4 left-0 border-r-2 border-rose-500 h-screen">
         <div className="flex flex-col gap-6">
           <div className="ml-4">
             <div className="inline-flex gap-4 items-center">
@@ -24,7 +24,7 @@ export default function MovieSidebar({ id }) {
             <NavLink
               to={"/"}
               title="Home"
-              className="inline-flex items-center md:gap-3 lg:gap-4 pl-2 lg:pl-6 py-3 hover:bg-rose-100 hover:border-r-4 hover:border-rose-500"
+              className="inline-flex items-center md:gap-3 lg:gap-4 pl-6 lg:pl-6 py-3 hover:bg-rose-100 hover:border-r-4 hover:border-rose-500"
             >
               <img src={home} alt="home" className="" />{" "}
               <p className="hidden lg:block">Home</p>

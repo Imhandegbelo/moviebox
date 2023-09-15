@@ -14,6 +14,8 @@ export function SingleMovie() {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [genre, setGenre] = useState(null);
+  const [directors, setDirectors] = useState([]);
+  const [writers, setWriters] = useState([]);
 
   const apiKey = "2c580b58c9354d8e7393cfd454223f73";
   useEffect(() => {
@@ -45,6 +47,17 @@ export function SingleMovie() {
       });
   }, []);
 
+  useEffect(() => {
+    axios
+      .get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}`)
+      .then((response) => {
+        setDirectors(response.data.crew.filter(({ job }) => job === "Director"));
+      })
+      .catch((error) => {
+        console.log("Error fetching credits", error);
+      });
+  });
+
   document.title = `${movie?.title}`;
   const releaseDate = new Date(movie?.release_date);
   const movieGenre = movie?.genre;
@@ -52,7 +65,7 @@ export function SingleMovie() {
   return (
     <>
       <div className="flex font-['Poppins']">
-        <div className="w-full basis-1/12 md:basis-2/12">
+        <div className="w-full hidden md:block md:basis-2/12">
           <MovieSidebar id={id} />
         </div>
         {!movie ? (
@@ -60,7 +73,7 @@ export function SingleMovie() {
             <Loading text={"Loading"} />
           </div>
         ) : (
-          <div className="p-2 basis-11/12 md:basis-10/12 sm:mx-14 my-9">
+          <div className="px-6 md:p-3 md:basis-10/12 sm:mx-14 my-9">
             <img
               src={`https://image.tmdb.org/t/p/w500${movie?.backdrop_path}`}
               alt={movie?.title}
@@ -83,6 +96,9 @@ export function SingleMovie() {
                   <p data-testid="movie-runtime" className="">
                     {`${movie?.runtime}mins`}
                   </p>
+                  <div className="flex wrap">
+                    {/* {directors} */}
+                  </div>
                 </div>
                 <div className="flex justify-between gap-2 item-center">
                   <img src={star} alt="star" className="w-6 h-6 md:w-7 h-7" />{" "}
@@ -113,11 +129,7 @@ export function SingleMovie() {
                     type="secondary"
                   />
                   <div className="flex gap-2">
-                    <img
-                      src={grouppic}
-                      alt="group photo"
-                      className="w-full"
-                    />
+                    <img src={grouppic} alt="group photo" className="w-full" />
                   </div>
                 </div>
               </div>
