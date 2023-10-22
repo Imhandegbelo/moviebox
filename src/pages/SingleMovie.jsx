@@ -9,6 +9,7 @@ import grouppic from "../assets/images/grouppic.png";
 import Button from "../components/SingleMovieButtons";
 import MovieSidebar from "../components/MovieSidebar";
 import Footer from "../components/Footer";
+import SingleMovieNav from "../components/SingleMovieNav";
 
 export function SingleMovie() {
   const { id } = useParams();
@@ -64,6 +65,7 @@ export function SingleMovie() {
 
   return (
     <>
+    {/* <SingleMovieNav/> */}
       <div className="flex font-['Poppins']">
         <div className="w-full hidden md:block md:basis-2/12">
           <MovieSidebar id={id} />
@@ -73,43 +75,43 @@ export function SingleMovie() {
             <Loading text={"Loading"} />
           </div>
         ) : (
-          <div className="px-6 md:p-3 md:basis-10/12 sm:mx-14 my-9">
+          <div className="px-6 md:p-3 w-full md:basis-10/12 sm:mx-2 my-9">
             <img
               src={`https://image.tmdb.org/t/p/w500${movie?.backdrop_path}`}
               alt={movie?.title}
               className="rounded-3xl h-[450px] w-full object-cover object-center"
             />
-            <div className="m-2 sm:m-4 flex flex-col gap-6">
-              <div className="flex justify-between text-xl sm:text-[23px] text-stone-700">
+            <div className="mt-6 flex flex-col gap-6">
+              <div className="flex justify-between text-stone-700">
                 <div className="flex flex-wrap gap-2">
-                  <h2 data-testid="movie-title font-bold">{movie?.title}</h2>
+                  <h2 className="text-lg md:text-xl sm:text-[23px]">{movie?.title}</h2><br />
                   <span className="text-xl sm:text-2xl hidden lg:inline-block">
                     .
                   </span>
-                  <p data-testid="movie-release-date" className="font-normal">
+                  <p className="text-md md:text-lg">
                     {" "}
                     {releaseDate.toUTCString().slice(5, 16)}
                   </p>
                   <span className="text-xl sm:text-2xl hidden lg:inline-block">
                     .
                   </span>
-                  <p data-testid="movie-runtime" className="font-normal">
+                  <p className="text-md md:text-lg">
                     {`${movie?.runtime}mins`}
                   </p>
-                  <div className="flex wrap items-cente align-center">
+                  <div className="flex wrap items-center">
                     {movie?.genres.map((genre, index) => (
                       <div
                         key={index}
-                        className="sm:ml-3 text-xs text-rose-700 lg:text-base font-bold leading-1"
+                        className="flex justify-between sm:ml-3 text-xs text-rose-700 lg:text-base font-bold leading-1"
                       >
                         {genre.name}
                       </div>
                     ))}{" "}
                   </div>
                 </div>
-                <div className="flex justify-between gap-2 item-center">
-                  <img src={star} alt="star" className="w-6 h-6 md:w-7 h-7" />{" "}
-                  <p className="text-gray-300">
+                <div className="flex flex-col gap-2 item-center">
+                  <img src={star} alt="star" className="w-4 h-4 md:w-7 h-7" />{" "}
+                  <p className="text-sm text-gray-300">
                     {movie?.vote_average.toFixed(1)}{" "}
                     <span className="text-stone-700">
                       | {movie?.vote_count}
@@ -118,30 +120,33 @@ export function SingleMovie() {
                 </div>
               </div>
               <div className="flex flex-col md:flex md:flex-row gap-4 md:gap-2">
-                <div className="flex flex-col gap-4 w-full md:w-2/3">
+                <div className="flex flex-col gap-4 w-full md:w-2/3 text-sm sm:text-md md:text-lg">
                   <p
                     data-testid="movie-overview"
-                    className="text-zinc-800 text-xl font-normal"
+                    className="text-zinc-800"
                   >
                     {movie?.overview}
                   </p>
-                  <p className="text-xl">
-                    Director: <span className="text-rose-700">{directors}</span>{" "}
-                  </p>
-                  <p className="text-xl">
-                    Writers:{" "}
-                    <span className="text-rose-700">
-                      {" "}
-                      Jim Cash, Jack Epps Jr, Peter Kosinski
-                    </span>{" "}
-                  </p>
-                  <p className="text-xl">
-                    Writers:{" "}
-                    <span className="text-rose-700">
-                      {" "}
-                      Tom Cruise, Jennifer Connelly
-                    </span>{" "}
-                  </p>
+                  <div className="grid sm:gap-2 md:gap-3 lg:gap-4">
+                    <p className="">
+                      Director:{" "}
+                      <span className="text-rose-700">{directors}</span>{" "}
+                    </p>
+                    <p className="">
+                      Writers:{" "}
+                      <span className="text-rose-700">
+                        {" "}
+                        Jim Cash, Jack Epps Jr, Peter Kosinski
+                      </span>{" "}
+                    </p>
+                    <p className="">
+                      Writers:{" "}
+                      <span className="text-rose-700">
+                        {" "}
+                        Tom Cruise, Jennifer Connelly
+                      </span>{" "}
+                    </p>
+                  </div>
                 </div>
                 <div className="flex flex-col w-full md:w-1/3 gap-4">
                   <Button title="See Showtimes" icon={ticket} type="primary" />

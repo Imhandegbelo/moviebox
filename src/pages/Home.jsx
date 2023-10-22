@@ -11,7 +11,8 @@ export default function Home() {
   const [genre, setGenre] = useState(null);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
 
-  const apiKey = "2c580b58c9354d8e7393cfd454223f73";
+
+  const apiKey = import.meta.env.VITE_API_KEY;
   useEffect(() => {
     const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&primary_release_year=2023&sort_by=vote_average.desc&vote_count.gte=1000`;
     axios

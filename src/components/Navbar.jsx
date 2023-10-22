@@ -51,13 +51,13 @@ export default function Navbar() {
         <button className="text-base font-bold items-center hidden sm:block">
           Sign in
         </button>
-        <div className="flex w-8 h-8 bg-rose-700 rounded-full items-center">
+        {/* <div className="flex w-8 h-8 bg-rose-700 rounded-full items-center">
           <img src={menu} alt="menu" className="h-6 w-6 mx-auto" />
-        </div>
+        </div> */}
       </div>
-      <div>
+      <div className="absolute w-full top-0 right-0">
         {loading ? (
-          <div className="w-full p-2 md:p-6 absolute left-0 top-[5rem] z-10 bg-white">
+          <div className="w-full p-2 md:p-6 z-10 bg-white">
             <div className="flex justify-center items-center gap-6">
               <div className="animate-ping">
                 <div className="rounded-full h-10 w-10 bg-rose-700"></div>

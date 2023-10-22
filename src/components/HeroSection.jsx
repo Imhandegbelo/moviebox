@@ -16,9 +16,6 @@ export function HeroSection({ moviesArray }) {
   }, [movieIndex, hero_movies]);
 
   return (
-    /* <IMDBRating>
-                  {movies[movieIndex]?.vote_average}
-                </IMDBRating> */
     <header className="h-37.5 relative">
       <div className="absolute top-0 left-0 right-0 bottom-0 transition-opacity duration-500 ease-out">
         {hero_movies.length > 0 && (

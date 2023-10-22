@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import imdb from "../assets/images/imdb.png";
 import rot_tomato from "../assets/images/rotten_tomato.png";
-// import Genre from "./Genre";
 import Heart from "../assets/images/Heart.svg";
 import { useState } from "react";
 
@@ -15,7 +14,7 @@ export function MovieCard({
 }) {
   const rating = (voteAverage * 10).toFixed(1);
   const [favourite, setFavourite] = useState(false);
-  console.log(movies?.genre);
+  
   return (
     <Link to={`/movies/${id}`} className="w-full max-w-[250px]">
       <div
