@@ -16,7 +16,7 @@ export function MovieCard({
   const [favourite, setFavourite] = useState(false);
   
   return (
-    <Link to={`/movies/${id}`} className="w-full max-w-[250px]">
+    <Link to={`/movies/${id}`} className="w-full max-w-[250px] shadow-2xl">
       <div
         data-testid="movie-card"
         className="relative flex flex-col justify-center gap-3"

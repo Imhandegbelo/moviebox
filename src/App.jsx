@@ -16,4 +16,5 @@ function App() {
   );
 }
 
+// { "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }] }
 export default App;

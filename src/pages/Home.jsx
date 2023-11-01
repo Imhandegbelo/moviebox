@@ -34,7 +34,7 @@ export default function Home() {
       .then((res) => {
         setTopRatedMovies(res.data.results);
       })
-      .catch((err) => console.error("Error fetching top rated movies", err));
+      .catch((err) => console.log("Error fetching top rated movies", err));
   }, []);
 
   useEffect(() => {

@@ -7,7 +7,7 @@ import ticket from "../assets/images/Two Tickets.png";
 import list from "../assets/images/List.png";
 import grouppic from "../assets/images/grouppic.png";
 import Button from "../components/SingleMovieButtons";
-import MovieSidebar from "../components/MovieSidebar";
+import MovieSidebar from "../components/MovieSidebar/MovieSidebar";
 import Footer from "../components/Footer";
 import SingleMovieNav from "../components/SingleMovieNav";
 
@@ -20,7 +20,8 @@ export function SingleMovie() {
 
   const apiKey = "2c580b58c9354d8e7393cfd454223f73";
   useEffect(() => {
-    const apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`;
+    // const apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`;
+    const apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&append_to_response=videos,credits`;
     axios
       .get(apiUrl)
       .then((res) => {
@@ -32,7 +33,8 @@ export function SingleMovie() {
   }, [id]);
 
   useEffect(() => {
-    const genreUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
+    // const genreUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
+    const genreUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&append_to_response=videos,credits`;
     axios
       .get(genreUrl)
       .then((res) => {
@@ -48,6 +50,7 @@ export function SingleMovie() {
   }, []);
 
   useEffect(() => {
+    // https://api.themoviedb.org/3/movie/157336?api_key=API_KEY&append_to_response=videos
     axios
       .get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}`)
       .then((response) => {
@@ -65,9 +68,9 @@ export function SingleMovie() {
 
   return (
     <>
-    {/* <SingleMovieNav/> */}
+      {/* <SingleMovieNav/> */}
       <div className="flex font-['Poppins']">
-        <div className="w-full hidden md:block md:basis-2/12">
+        <div className="w-full basis-1/12 md:block md:basis-2/12">
           <MovieSidebar id={id} />
         </div>
         {!movie ? (
@@ -76,15 +79,24 @@ export function SingleMovie() {
           </div>
         ) : (
           <div className="px-6 md:p-3 w-full md:basis-10/12 sm:mx-2 my-9">
-            <img
+            <iframe
+              src={`https://www.youtube.com/embed/${movie?.videos?.results[0]?.key}`}
+              titte={movie?.title}
+              allowFullScreen
+              className="rounded-2xl border w-full h-[450px]"
+            ></iframe>
+            {/* <img
               src={`https://image.tmdb.org/t/p/w500${movie?.backdrop_path}`}
               alt={movie?.title}
               className="rounded-3xl h-[450px] w-full object-cover object-center"
-            />
+            /> */}
             <div className="mt-6 flex flex-col gap-6">
               <div className="flex justify-between text-stone-700">
                 <div className="flex flex-wrap gap-2">
-                  <h2 className="text-lg md:text-xl sm:text-[23px]">{movie?.title}</h2><br />
+                  <h2 className="text-lg md:text-xl sm:text-[23px]">
+                    {movie?.title}
+                  </h2>
+                  <br />
                   <span className="text-xl sm:text-2xl hidden lg:inline-block">
                     .
                   </span>
@@ -121,10 +133,7 @@ export function SingleMovie() {
               </div>
               <div className="flex flex-col md:flex md:flex-row gap-4 md:gap-2">
                 <div className="flex flex-col gap-4 w-full md:w-2/3 text-sm sm:text-md md:text-lg">
-                  <p
-                    data-testid="movie-overview"
-                    className="text-zinc-800"
-                  >
+                  <p data-testid="movie-overview" className="text-zinc-800">
                     {movie?.overview}
                   </p>
                   <div className="grid sm:gap-2 md:gap-3 lg:gap-4">

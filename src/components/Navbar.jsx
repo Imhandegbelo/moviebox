@@ -55,7 +55,7 @@ export default function Navbar() {
           <img src={menu} alt="menu" className="h-6 w-6 mx-auto" />
         </div> */}
       </div>
-      <div className="absolute w-full top-0 right-0">
+      <div className={`${loading?"block":"hidden"}absolute w-full top-0 right-0`}>
         {loading ? (
           <div className="w-full p-2 md:p-6 z-10 bg-white">
             <div className="flex justify-center items-center gap-6">
