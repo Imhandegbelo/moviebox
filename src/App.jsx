@@ -6,7 +6,7 @@ import { ErrorPage } from "./pages/ErrorPage";
 
 function App() {
   return (
-    <div>
+    <div className="w-full">
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/movies/:id" element={<SingleMovie />} />

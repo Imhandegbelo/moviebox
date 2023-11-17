@@ -4,22 +4,15 @@ import rot_tomato from "../assets/images/rotten_tomato.png";
 import Heart from "../assets/images/Heart.svg";
 import { useState } from "react";
 
-export function MovieCard({
-  id,
-  title,
-  releaseDate,
-  posterUrl,
-  voteAverage,
-  movies,
-}) {
+export function MovieCard({ id, title, releaseDate, posterUrl, voteAverage }) {
   const rating = (voteAverage * 10).toFixed(1);
   const [favourite, setFavourite] = useState(false);
-  
+
   return (
-    <Link to={`/movies/${id}`} className="w-full max-w-[250px] shadow-2xl">
+    <Link to={`/movies/${id}`} className="w-full shadow-2x">
       <div
         data-testid="movie-card"
-        className="relative flex flex-col justify-center gap-3"
+        className="relative flex flex-col justify-center gap-3  bg-gray-100"
       >
         <img
           src={Heart}
@@ -37,17 +30,17 @@ export function MovieCard({
         />
         <p
           data-testid="movie-release-date"
-          className="text-xs font-bold text-gray-400"
+          className="text-xs mx-2 font-bold text-gray-400"
         >
           {releaseDate}
         </p>
         <h2
           data-testid="movie-title"
-          className="text-lg font-bold text-gray-900"
+          className="text-lg mx-2 font-bold text-gray-900"
         >
           {title}
         </h2>
-        <div className="inline-flex justify-between">
+        <div className="inline-flex justify-between px-2">
           <div className="flex gap-2.5 items-center">
             <img src={imdb} alt="imdb" className="h-4" />
             <small className="font-normal text-xs text-gray-900">

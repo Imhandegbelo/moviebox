@@ -10,7 +10,7 @@ export function HeroSection({ moviesArray }) {
   useEffect(() => {
     const timer_update = setTimeout(() => {
       setMovieIndex((prevIndex) => (prevIndex + 1) % hero_movies.length);
-    }, 5000);
+    }, 10000);
 
     return () => clearTimeout(timer_update);
   }, [movieIndex, hero_movies]);
@@ -23,7 +23,7 @@ export function HeroSection({ moviesArray }) {
             <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-[600px] bg-black bg-opacity-70"></div>
             <Navbar />
 
-            <div className="absolute border-white h-full flex items-end sm:items-center p-6 lg:pl-24">
+            <div className="absolute h-full flex items-end sm:items-center p-6 lg:pl-24">
               <DescriptionBox
                 title={hero_movies[movieIndex]?.title}
                 description={hero_movies[movieIndex]?.overview}

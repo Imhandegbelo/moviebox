@@ -18,7 +18,7 @@ export function SingleMovie() {
   const [directors, setDirectors] = useState([]);
   // const [writers, setWriters] = useState([]);
 
-  const apiKey = "2c580b58c9354d8e7393cfd454223f73";
+  const apiKey = import.meta.env.VITE_API_KEY;
   useEffect(() => {
     // const apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`;
     const apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&append_to_response=videos,credits`;
@@ -69,7 +69,7 @@ export function SingleMovie() {
   return (
     <>
       {/* <SingleMovieNav/> */}
-      <div className="flex font-['Poppins']">
+      <div className="flex font-Poppins mx-w-[1440px] mx-auto">
         <div className="w-full basis-1/12 md:block md:basis-2/12">
           <MovieSidebar id={id} />
         </div>

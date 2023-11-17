@@ -1,7 +1,7 @@
 import NiceModal from "@ebay/nice-modal-react";
 import menu from "../assets/images/menu.svg";
 import tv from "../assets/images/tv.png";
-import { MobileMenu } from "./MobileMenu";
+// import { MobileMenu } from "./MobileMenu";
 
 export default function SingleMovieNav() {
   return (
@@ -11,7 +11,7 @@ export default function SingleMovieNav() {
         <h1>MovieBox</h1>
       </div>
       <button
-        onClick={() => NiceModal.show(MobileMenu)}
+        // onClick={() => NiceModal.show(MobileMenu)}
         className="flex w-8 h-8 bg-rose-700 rounded-full items-center"
       >
         <img src={menu} alt="menu" className="h-6 w-6 mx-auto" />

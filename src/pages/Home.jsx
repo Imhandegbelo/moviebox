@@ -11,7 +11,6 @@ export default function Home() {
   const [genre, setGenre] = useState(null);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
 
-
   const apiKey = import.meta.env.VITE_API_KEY;
   useEffect(() => {
     const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&primary_release_year=2023&sort_by=vote_average.desc&vote_count.gte=1000`;
@@ -27,6 +26,7 @@ export default function Home() {
       });
   }, []);
 
+  // Top rated
   useEffect(() => {
     const topRated = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`;
     axios
@@ -37,6 +37,7 @@ export default function Home() {
       .catch((err) => console.log("Error fetching top rated movies", err));
   }, []);
 
+  // Genre
   useEffect(() => {
     const genreUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
     axios
@@ -54,7 +55,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="absolute w-full">
+    <div className="absolute w-full max-w-[1440px] mx-auto">
       <div className="relative top-0">
         <HeroSection moviesArray={movies} />
       </div>

@@ -43,7 +43,7 @@ export default function Navbar() {
   }, [searchQuery]);
 
   return (
-    <nav className="absolute px-2 sm:px-4 md:px-6 lg:px-24 z-10 bg-transparent top-0 flex justify-between text-white py-6 w-full h-20 items-center">
+    <nav className="absolute px-2 sm:px-4 md:px-6 lg:px-24 z-10 top-0 flex justify-between text-white py-6 w-full h-20 items-center">
       <img src={tv} alt="tv-logo" className="w-8 h-8 lg:hidden" />
       <img src={logo} alt="moviebox" className="hidden lg:block" />
       <SearchBar searchQuery={searchQuery} onSearchQueryChange={handleChange} />
@@ -51,16 +51,23 @@ export default function Navbar() {
         <button className="text-base font-bold items-center hidden sm:block">
           Sign in
         </button>
-        {/* <div className="flex w-8 h-8 bg-rose-700 rounded-full items-center">
+        <button
+          onClick={""}
+          className="flex w-8 h-8 bg-rose-700 rounded-full items-center"
+        >
           <img src={menu} alt="menu" className="h-6 w-6 mx-auto" />
-        </div> */}
+        </button>
       </div>
-      <div className={`${loading?"block":"hidden"}absolute w-full top-0 right-0`}>
+      <div
+        className={`${
+          loading ? "block" : "hidden"
+        } absolute w-full top-[6rem] right-0`}
+      >
         {loading ? (
           <div className="w-full p-2 md:p-6 z-10 bg-white">
             <div className="flex justify-center items-center gap-6">
               <div className="animate-ping">
-                <div className="rounded-full h-10 w-10 bg-rose-700"></div>
+                <div className="rounded-full h-5 w-5 lg:h-10 lg:w-10 bg-rose-700"></div>
               </div>
               <h2 className="text-rose-500 text-2xl font-bold">Loading ...</h2>
             </div>
@@ -78,7 +85,7 @@ export default function Navbar() {
                 <div className="w-10 md:w-20 ">
                   <img
                     src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                    alt=""
+                    alt={movie.title}
                   />
                 </div>
                 <div className="flex flex-col gap-2">
