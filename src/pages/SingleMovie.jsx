@@ -18,10 +18,8 @@ export function SingleMovie() {
   const [directors, setDirectors] = useState([]);
   // const [writers, setWriters] = useState([]);
 
-  // const apiKey = import.meta.env.VITE_API_KEY;
-    const apiKey = "2c580b58c9354d8e7393cfd454223f73";
+  const apiKey = import.meta.env.VITE_API_KEY;
   useEffect(() => {
-    // const apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`;
     const apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&append_to_response=videos,credits`;
     axios
       .get(apiUrl)
